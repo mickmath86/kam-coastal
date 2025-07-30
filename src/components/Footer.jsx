@@ -2,8 +2,10 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
+import Image from 'next/image'
 import { Logo } from '@/components/Logo'
 import { socialMediaProfiles } from '@/components/SocialMedia'
+import KamLogo from "@/images/logos/kam-logo.svg"
 
 const navigation = [
   {
@@ -124,7 +126,7 @@ export function Footer() {
           <Link href="/" aria-label="Home">
             {/* <Logo className="h-8" fillOnHover />
              */}
-             <h1 className="font-bold">KAM Coastal</h1>
+             <Image src={KamLogo.src} width={100} height={100} alt="KAM Logo"/>
           </Link>
           <p className="text-sm text-neutral-700">
             © KAM Coastal {new Date().getFullYear()}
