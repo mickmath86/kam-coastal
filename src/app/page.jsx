@@ -184,7 +184,7 @@ function Services() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-         Whether you're seeking to develop, sell, or optimize your property, MKM provides the clarity, experience, and execution needed to move forward with confidence.
+         Whether you're seeking to develop, sell, or optimize your property, KAM provides the clarity, experience, and execution needed to move forward with confidence.
         </p>
       </SectionIntro>
       <Container className="mt-16">

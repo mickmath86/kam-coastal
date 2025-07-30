@@ -79,7 +79,7 @@ function Plan() {
     Once the opportunity is clear, we move into the planning phase—where strategy takes shape. This is where we combine insight with execution: defining project goals, assembling the right partners, and preparing a roadmap that leads to results. Whether the next step is a sale, a build, or a phased redevelopment, this is where we map out how to get there.
         </p>
         <p>
-         Planning at MKM is both creative and rigorous. We balance vision with real-world constraints, crafting timelines, budgets, and deal structures that are achievable and aligned with your objectives. Our experience in both the public and private sectors gives us a unique edge in preparing projects for success.
+         Planning at KAM is both creative and rigorous. We balance vision with real-world constraints, crafting timelines, budgets, and deal structures that are achievable and aligned with your objectives. Our experience in both the public and private sectors gives us a unique edge in preparing projects for success.
         </p>
        
       </div>
@@ -107,7 +107,7 @@ function Execute() {
     <Section title="Execute" image={{ src: imageExecute, shape: 2 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-        Execution is where plans become reality. MKM serves as the central point of coordination—bringing together architects, engineers, legal teams, city agencies, and contractors to ensure your project progresses smoothly and efficiently. Whether we’re managing a ground-up development or marketing a property for sale, our commitment to detail and communication keeps everything on track.
+        Execution is where plans become reality. KAM serves as the central point of coordination—bringing together architects, engineers, legal teams, city agencies, and contractors to ensure your project progresses smoothly and efficiently. Whether we’re managing a ground-up development or marketing a property for sale, our commitment to detail and communication keeps everything on track.
         </p>
         <p>
          We take pride in not just delivering projects—but doing so with transparency, accountability, and integrity. Our team remains engaged until the final milestone is met, ensuring nothing falls through the cracks. And even after project delivery, we remain a long-term resource to ensure ongoing success.
