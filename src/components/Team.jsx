@@ -44,10 +44,9 @@ const team = [
         image: { src: imageMikeMathias },
         bio: (
           <div className="flex flex-col ">
-            <p>Mike Mathias is a seasoned marketing leader and technical project manager with over 15 years of experience driving high-impact digital initiatives for global brands. With a background that bridges creative strategy, web development, and real estate, Mike brings a rare blend of business acumen and technical execution to every project.</p> <br /><br />
-            <p>He has led cross-functional teams delivering brand campaigns, SaaS applications, and full-stack digital experiences for clients like Google, Nike, Samsung, FX Networks, and the BBC. From developing high-converting websites to managing video production and advertising strategy, Mike excels at taking ideas from concept to launch with precision and speed.</p> <br /><br />
-            <p>Mike is also proficient in modern web technologies including React, Next.js, Vercel, and AWS, and has extensive experience with DevOps, REST APIs, Atlassian tools, and data visualization. Outside of tech, he holds a California Real Estate Broker’s License and has worked on both the transactional and development sides of real estate.</p> <br /><br />
-            <p>He earned his B.S. in Business Administration with a focus in Marketing from California Polytechnic State University, San Luis Obispo, and studied abroad at FIE in London.</p><br /><br />
+            <p><strong>Mike Mathias</strong> is a seasoned marketing leader and technical project manager with over 15 years of experience driving high-impact digital initiatives for global brands. With a background that bridges creative strategy, web development, and real estate, Mike brings a rare blend of business acumen and technical execution to every project.</p> <br />
+            <p>Mike is also proficient in modern web technologies including React, Next.js, Vercel, and AWS, and has extensive experience with DevOps, REST APIs, Atlassian tools, and data visualization. Outside of tech, he holds a California Real Estate Broker’s License and has worked on both the transactional and development sides of real estate.</p> <br />
+            <p>He earned his B.S. in Business Administration with a focus in Marketing from California Polytechnic State University, San Luis Obispo, and studied abroad at FIE in London.</p><br />
             <p>Mike resides in Ventura, CA with his wife and son. When he’s not building products or scaling campaigns, you’ll find him recording music, restoring classic motorcycles, or playing chess.</p>
           </div>
            ),  
