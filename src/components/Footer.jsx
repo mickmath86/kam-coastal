@@ -11,9 +11,9 @@ const navigation = [
   {
     title: 'Work',
     links: [
-      { title: 'Reality Ventura', href: '/work/family-fund' },
-      { title: 'William Carey International University', href: '/work/unseal' },
-      { title: 'Lighthouse Church 80-Unit Development', href: '/work/phobia' },
+      { title: 'Reality Ventura', href: '/work/reality' },
+      { title: 'William Carey International University', href: '/work/wciu' },
+      { title: 'Lighthouse Church 80-Unit Development', href: '/work/lighthouse' },
       {
         title: (
           <>
@@ -29,7 +29,7 @@ const navigation = [
     links: [
       { title: 'About', href: '/about' },
       { title: 'Process', href: '/process' },
-      // { title: 'Blog', href: '/blog' },
+      { title: 'Blog', href: '/blog' },
       { title: 'Contact us', href: '/contact' },
     ],
   },
