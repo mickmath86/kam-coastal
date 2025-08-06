@@ -3,6 +3,9 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useState } from 'react'
 import Image from 'next/image'
+import { ScrollArea } from "@/components/ui/scroll-area"
+
+
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Container } from '@/components/Container'
 import { Border } from '@/components/Border'
@@ -22,6 +25,7 @@ import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
 import imageMichaelFoster from '@/images/team/michael-foster.jpg'
 import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
 
+
 import { SocialMedia } from './SocialMedia'
 
 const team = [
@@ -32,19 +36,19 @@ const team = [
         name: 'Keith Mathias',
         role: 'Co-Founder',
         image: { src: imageKeithMathias },
-        bio: '',
+        bio: 'Keith Mathias has been a licensed Real Estate Broker and General Contractor since 1984, bringing extensive experience in commercial land development and construction. He has successfully acquired, entitled, and built numerous commercial business parks across California, including areas like, Santa Maria, Valencia, Oxnard, and Ventura. Keith has also developed build-to-suit properties throughout the Western United States for clients such as FedEx Express, Univision, and Tractor Supply. Beyond his development projects, he is a respected consultant for faith-based organizations, assisting entities like World Impact and Crazy Love Ministries in strategic real estate development and disposition. Residing in Newbury Park, California, with his wife Robin, Keith is an active church elder and family man, proud of his three adult children and two grandsons.',
         linkedIn: "keith-mathias-56469a58"
       },
       {
         name: 'Michael Mathias',
-        role: 'Co-Founder | CMO',
+        role: 'Co-Founder',
         image: { src: imageMikeMathias },
         bio: '',
          linkedIn: "mmathias86"
       },
       {
         name: 'Mark Mathias',
-        role: 'Partner & Business Relations',
+        role: 'Co-Founder',
         image: { src: imageMarkMathias },
         bio: '',
          linkedIn: "markmath"
@@ -65,15 +69,15 @@ const team = [
         name: 'Kevin Shepard',
         role: 'Construction Project Manager',
         image: { src: imageKevinShepard },
-        bio: '',
+        bio: 'Kevin Shepard is a seasoned construction and real estate development professional with over two decades of hands-on experience delivering high-impact residential and mixed-use projects across California. Currently serving as a Senior Project Manager at AvalonBay Communities, Kevin oversees all facets of large-scale developments—most notably AVA Hollywood, a 695-unit mixed-use podium project, the company’s largest West Coast build to date. He also leads AvalonBay’s statewide ADU initiative, reflecting his depth in both ground-up development and strategic infill solutions. Kevin’s expertise spans the full lifecycle of construction and development, from preconstruction and entitlement to budgeting, procurement, scheduling, and project delivery. His prior experience includes leading roles at Snyder Langston and Hill Contractors, and nearly a decade as owner/developer of Shepard Contracting Group, where he developed custom homes in Malibu and the Santa Monica Mountains. With a leadership style rooted in collaboration and accountability, Kevin is known for building high-performing teams, delivering projects on schedule and within budget, and fostering long-term relationships with stakeholders, consultants, and jurisdictions. He earned his BA in Communication Arts & Sciences from the University of Southern California, where he was also a two-time NCAA Division I National Champion in Men’s Volleyball.',
          linkedIn: "kevin-shepard-176b4b135"
       },
       {
         name: 'Mark Pettit',
         role: 'Architect',
         image: { src: imageLeonardKrasner },
-        bio: '',
-         linkedIn: "markstephenpettit"
+        bio: 'Mark Pettit is a highly accomplished architect and entitlement specialist with over four decades of experience shaping the built environment across Southern California. With degrees in both Architecture and Real Estate Development from The Pennsylvania State University, Mark brings a rare blend of design vision, technical execution, and development strategy to every project he touches. Since 1986, Mark has been a key figure at DIaL Services / Lauterbach & Associates Architects in Oxnard, CA, where he has led the entitlement, design, and construction of a wide range of project types—from single-family homes and large master-planned communities to mixed-use developments, religious campuses, commercial centers, and complex industrial facilities. His deep experience navigating city and county permitting processes has made him an invaluable partner for clients looking to bring ambitious projects to life. Mark’s work reflects a lifelong commitment to community-driven design. He has served on the Board of Directors for the Housing Trust Fund and Housing Land Trust of Ventura County, helping to advance affordable housing initiatives throughout the region. He is also an active member and past board member of the American Institute of Architects, Ventura County chapter. Grounded in both practice and purpose, Mark continues to advocate for thoughtful, sustainable growth that meets the evolving needs of California’s communities.',
+      linkedIn: "markstephenpettit"
       },
     ],
   },
@@ -172,30 +176,50 @@ function Team() {
         ))}
 
         {/* Modal Dialog */}
+      
         <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent className="sm:max-w-[425px]">
+         
+          <DialogContent className=" sm:max-w-[925px] mt-10">
+          <ScrollArea className="max-h-[75vh]">
+            <FadeIn>
             {selectedPerson && (
-              <>
-                <DialogHeader>
-                  <DialogTitle>{selectedPerson.name}</DialogTitle>
-                  <div className="flex items-center">
-                      <DialogDescription>{selectedPerson.role}</DialogDescription>
-                      <LinkedIn handle={selectedPerson.linkedIn}/>
-                  </div>
+               <>
+                  <DialogHeader className="flex items-center">
                 
-                </DialogHeader>
-                <div className="mt-4 space-y-4">
+                  
+
+                  
                   <Image
-                    alt={selectedPerson.name}
-                    {...selectedPerson.image}
-                    className="rounded-lg w-full object-cover"
-                  />
-                  <p className="text-sm text-neutral-700">{selectedPerson.bio || 'Bio coming soon.'}</p>
-                </div>
-              </>
+                      alt={selectedPerson.name}
+                      {...selectedPerson.image}
+                      className="rounded-lg w-75 object-cover"
+                    />
+                    <DialogTitle>{selectedPerson.name}</DialogTitle>
+                    <div className="flex items-center align-center">
+                        <DialogDescription>{selectedPerson.role}</DialogDescription>
+                        <div className="border-1 rounded-sm cursor-pointer ml-2">
+                        <LinkedIn handle={selectedPerson.linkedIn}/>
+                        </div>
+                     
+                    </div>
+                  
+                  </DialogHeader>
+                    <div className="mt-4 space-y-4 flex flex-row gap-4">
+                   
+                         <p className="text-md text-neutral-700">{selectedPerson.bio || 'Bio coming soon.'}</p>
+                 
+                    
+                    </div>
+              
+               </>
             )}
+            </FadeIn>
+            </ScrollArea>
           </DialogContent>
+         
         </Dialog>
+         
+        
       </div>
     </Container>
   )
