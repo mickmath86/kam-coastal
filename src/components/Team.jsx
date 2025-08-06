@@ -16,15 +16,7 @@ import imageMarkMathias from '@/images/team/mark-mathias.jpeg'
 import imageJasonJewell from '@/images/team/jason-jewell.jpeg'
 import imageKevinShepard from '@/images/team/kevin-shepard.jpeg'
 import imageAvatar from '@/images/team/avatar.png'
-import imageChelseaHagon from '@/images/team/chelsea-hagon.jpg'
-import imageDriesVincent from '@/images/team/dries-vincent.jpg'
-import imageEmmaDorsey from '@/images/team/emma-dorsey.jpg'
-import imageJeffreyWebb from '@/images/team/jeffrey-webb.jpg'
-import imageKathrynMurphy from '@/images/team/kathryn-murphy.jpg'
-import imageLeonardKrasner from '@/images/team/leonard-krasner.jpg'
-import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
-import imageMichaelFoster from '@/images/team/michael-foster.jpg'
-import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
+
 
 
 import { SocialMedia } from './SocialMedia'
@@ -52,10 +44,13 @@ const team = [
         image: { src: imageMikeMathias },
         bio: (
           <div className="flex flex-col ">
-         <p> As a licensed real estate broker, <strong>Mike Mathias</strong> combines his expertise in real estate with a background in high-level marketing and production. </p> <br />
-         <p>Previously, he led major projects for global brands like Google, Nike, and Samsung, managing large-scale digital campaigns and platform redesigns. Now, he focuses on real estate, leveraging technology to streamline property management and investment strategies. </p> <br />
-         <p>Based in Ventura County with his wife, Dana, and their son, Ryan, Mike is dedicated to creating innovative solutions for investors and property owners.</p>
-           </div>),  
+            <p>Mike Mathias is a seasoned marketing leader and technical project manager with over 15 years of experience driving high-impact digital initiatives for global brands. With a background that bridges creative strategy, web development, and real estate, Mike brings a rare blend of business acumen and technical execution to every project.</p> <br /><br />
+            <p>He has led cross-functional teams delivering brand campaigns, SaaS applications, and full-stack digital experiences for clients like Google, Nike, Samsung, FX Networks, and the BBC. From developing high-converting websites to managing video production and advertising strategy, Mike excels at taking ideas from concept to launch with precision and speed.</p> <br /><br />
+            <p>Mike is also proficient in modern web technologies including React, Next.js, Vercel, and AWS, and has extensive experience with DevOps, REST APIs, Atlassian tools, and data visualization. Outside of tech, he holds a California Real Estate Broker’s License and has worked on both the transactional and development sides of real estate.</p> <br /><br />
+            <p>He earned his B.S. in Business Administration with a focus in Marketing from California Polytechnic State University, San Luis Obispo, and studied abroad at FIE in London.</p><br /><br />
+            <p>Mike resides in Ventura, CA with his wife and son. When he’s not building products or scaling campaigns, you’ll find him recording music, restoring classic motorcycles, or playing chess.</p>
+          </div>
+           ),  
          linkedIn: "mmathias86"
       },
       {
