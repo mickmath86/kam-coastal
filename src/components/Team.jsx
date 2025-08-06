@@ -15,6 +15,7 @@ import imageMikeMathias from '@/images/team/mike-mathias.jpeg'
 import imageMarkMathias from '@/images/team/mark-mathias.jpeg'
 import imageJasonJewell from '@/images/team/jason-jewell.jpeg'
 import imageKevinShepard from '@/images/team/kevin-shepard.jpeg'
+import imageAvatar from '@/images/team/avatar.png'
 import imageChelseaHagon from '@/images/team/chelsea-hagon.jpg'
 import imageDriesVincent from '@/images/team/dries-vincent.jpg'
 import imageEmmaDorsey from '@/images/team/emma-dorsey.jpg'
@@ -36,22 +37,38 @@ const team = [
         name: 'Keith Mathias',
         role: 'Co-Founder',
         image: { src: imageKeithMathias },
-        bio: 'Keith Mathias has been a licensed Real Estate Broker and General Contractor since 1984, bringing extensive experience in commercial land development and construction. He has successfully acquired, entitled, and built numerous commercial business parks across California, including areas like, Santa Maria, Valencia, Oxnard, and Ventura. Keith has also developed build-to-suit properties throughout the Western United States for clients such as FedEx Express, Univision, and Tractor Supply. Beyond his development projects, he is a respected consultant for faith-based organizations, assisting entities like World Impact and Crazy Love Ministries in strategic real estate development and disposition. Residing in Newbury Park, California, with his wife Robin, Keith is an active church elder and family man, proud of his three adult children and two grandsons.',
-        linkedIn: "keith-mathias-56469a58"
+        bio: (
+         <div className="flex flex-col ">
+          <p><strong>Keith Mathias</strong> has been a licensed Real Estate Broker and General Contractor since 1984, bringing extensive experience in commercial land development and construction. He has successfully acquired, entitled, and built numerous commercial business parks across California, including areas like, Santa Maria, Valencia, Oxnard, and Ventura.  </p><br />
+           <p>Keith has also developed build-to-suit properties throughout the Western United States for clients such as FedEx Express, Univision, and Tractor Supply. </p><br />
+          <p> Beyond his development projects, he is a respected consultant for faith-based organizations, assisting entities like World Impact and Crazy Love Ministries in strategic real estate development and disposition. Residing in Newbury Park, California, with his wife Robin, Keith is an active church elder and family man, proud of his three adult children and two grandsons.</p>
+          </div>
+          ),  
+          linkedIn: "keith-mathias-56469a58"
       },
       {
         name: 'Michael Mathias',
         role: 'Co-Founder',
         image: { src: imageMikeMathias },
-        bio: '',
+        bio: (
+          <div className="flex flex-col ">
+         <p> As a licensed real estate broker, <strong>Mike Mathias</strong> combines his expertise in real estate with a background in high-level marketing and production. </p> <br />
+         <p>Previously, he led major projects for global brands like Google, Nike, and Samsung, managing large-scale digital campaigns and platform redesigns. Now, he focuses on real estate, leveraging technology to streamline property management and investment strategies. </p> <br />
+         <p>Based in Ventura County with his wife, Dana, and their son, Ryan, Mike is dedicated to creating innovative solutions for investors and property owners.</p>
+           </div>),  
          linkedIn: "mmathias86"
       },
       {
         name: 'Mark Mathias',
         role: 'Co-Founder',
         image: { src: imageMarkMathias },
-        bio: '',
-         linkedIn: "markmath"
+        bio: (
+          <div className="flex flex-col">
+                <p>As a licensed real estate broker who's sold +$20M worth of investment property, and as a property manager, <strong>Mark Mathias</strong> has managed several apartment complexes with Thrive Communities in Seattle, WA.</p><br />
+                <p>Additionally, Mark was a Product Manager for a tech start-up, Enervee, preparing him to work cross-functionally with teams to meet deadlines, manage technically complex projects, and leverage technology to streamline systems and processes.</p>
+          </div> 
+        ), 
+        linkedIn: "markmath"
       },
     ],
   },
@@ -60,24 +77,46 @@ const team = [
     people: [
       {
         name: 'Jason Jewell',
-        role: 'Financial Consultant',
+        role: 'Lead Financial Consultant',
         image: { src: imageJasonJewell },
         bio: '',
          linkedIn: "jewellholisticinvestments"
       },
       {
         name: 'Kevin Shepard',
-        role: 'Construction Project Manager',
+        role: 'Lead Construction Manager',
         image: { src: imageKevinShepard },
-        bio: 'Kevin Shepard is a seasoned construction and real estate development professional with over two decades of hands-on experience delivering high-impact residential and mixed-use projects across California. Currently serving as a Senior Project Manager at AvalonBay Communities, Kevin oversees all facets of large-scale developments—most notably AVA Hollywood, a 695-unit mixed-use podium project, the company’s largest West Coast build to date. He also leads AvalonBay’s statewide ADU initiative, reflecting his depth in both ground-up development and strategic infill solutions. Kevin’s expertise spans the full lifecycle of construction and development, from preconstruction and entitlement to budgeting, procurement, scheduling, and project delivery. His prior experience includes leading roles at Snyder Langston and Hill Contractors, and nearly a decade as owner/developer of Shepard Contracting Group, where he developed custom homes in Malibu and the Santa Monica Mountains. With a leadership style rooted in collaboration and accountability, Kevin is known for building high-performing teams, delivering projects on schedule and within budget, and fostering long-term relationships with stakeholders, consultants, and jurisdictions. He earned his BA in Communication Arts & Sciences from the University of Southern California, where he was also a two-time NCAA Division I National Champion in Men’s Volleyball.',
-         linkedIn: "kevin-shepard-176b4b135"
+        bio: (
+        <div className="flex flex-col">
+
+   
+          <p><strong>Kevin Shepard </strong>is a seasoned construction and real estate development professional with over two decades of hands-on experience delivering high-impact residential and mixed-use projects across California. 
+        Currently serving as a Senior Project Manager at AvalonBay Communities, Kevin oversees all facets of large-scale developments—most notably AVA Hollywood, a 695-unit mixed-use podium project, the company’s largest West Coast build to date. </p>
+       <p> He also leads AvalonBay’s statewide ADU initiative, reflecting his depth in both ground-up development and strategic infill solutions. Kevin’s expertise spans the full lifecycle of construction and development, from preconstruction and entitlement to budgeting, procurement, scheduling, and project delivery.</p> <br />
+       <p> His prior experience includes leading roles at Snyder Langston and Hill Contractors, and nearly a decade as owner/developer of Shepard Contracting Group, where he developed custom homes in Malibu and the Santa Monica Mountains. With a leadership style rooted in collaboration and accountability, Kevin is known for building high-performing teams, delivering projects on schedule and within budget, and fostering long-term relationships with stakeholders, consultants, and jurisdictions. 
+
+        </p> <br />
+       <p> He earned his BA in Communication Arts & Sciences from the University of Southern California, where he was also a two-time NCAA Division I National Champion in Men’s Volleyball.</p>
+        </div>
+        ), 
+        linkedIn: "kevin-shepard-176b4b135"
       },
       {
         name: 'Mark Pettit',
-        role: 'Architect',
-        image: { src: imageLeonardKrasner },
-        bio: 'Mark Pettit is a highly accomplished architect and entitlement specialist with over four decades of experience shaping the built environment across Southern California. With degrees in both Architecture and Real Estate Development from The Pennsylvania State University, Mark brings a rare blend of design vision, technical execution, and development strategy to every project he touches. Since 1986, Mark has been a key figure at DIaL Services / Lauterbach & Associates Architects in Oxnard, CA, where he has led the entitlement, design, and construction of a wide range of project types—from single-family homes and large master-planned communities to mixed-use developments, religious campuses, commercial centers, and complex industrial facilities. His deep experience navigating city and county permitting processes has made him an invaluable partner for clients looking to bring ambitious projects to life. Mark’s work reflects a lifelong commitment to community-driven design. He has served on the Board of Directors for the Housing Trust Fund and Housing Land Trust of Ventura County, helping to advance affordable housing initiatives throughout the region. He is also an active member and past board member of the American Institute of Architects, Ventura County chapter. Grounded in both practice and purpose, Mark continues to advocate for thoughtful, sustainable growth that meets the evolving needs of California’s communities.',
-      linkedIn: "markstephenpettit"
+        role: 'Lead Architect',
+        image: { src: imageAvatar },
+        bio: (
+          
+          <div>
+            <strong>Mark Pettit</strong> is a highly accomplished architect and entitlement specialist with over four decades of experience shaping the built environment across Southern California. <br /> 
+            With degrees in both Architecture and Real Estate Development from The Pennsylvania State University, Mark brings a rare blend of design vision, technical execution, and development strategy to every project he touches. <br />
+            <br />Since 1986, Mark has been a key figure at DIaL Services / Lauterbach & Associates Architects in Oxnard, CA, where he has led the entitlement, design, and construction of a wide range of project types—from single-family homes and large master-planned communities to mixed-use developments, religious campuses, commercial centers, and complex industrial facilities. 
+            His deep experience navigating city and county permitting processes has made him an invaluable partner for clients looking to bring ambitious projects to life. 
+            Mark’s work reflects a lifelong commitment to community-driven design. <br /><br />He has served on the Board of Directors for the Housing Trust Fund and Housing Land Trust of Ventura County, helping to advance affordable housing initiatives throughout the region. He is also an active member and past board member of the American Institute of Architects, Ventura County chapter. 
+            Grounded in both practice and purpose, Mark continues to advocate for thoughtful, sustainable growth that meets the evolving needs of California’s communities.
+      
+          </div>
+          ),  linkedIn: "markstephenpettit"
       },
     ],
   },
@@ -204,10 +243,10 @@ function Team() {
                     </div>
                   
                   </DialogHeader>
-                    <div className="mt-4 space-y-4 flex flex-row gap-4">
+                    <div className="mt-4 space-y-4 gap-4">
                    
-                         <p className="text-md text-neutral-700">{selectedPerson.bio || 'Bio coming soon.'}</p>
-                 
+                         {/* <p className="text-md text-neutral-700">{selectedPerson.bio || 'Bio coming soon.'}</p> */}
+                         {selectedPerson.bio || 'Bio coming soon.'}
                     
                     </div>
               
