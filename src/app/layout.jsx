@@ -1,4 +1,5 @@
 import '@/styles/tailwind.css'
+import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from 'sonner'
 
 export const metadata = {
@@ -27,6 +28,7 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
+      <Analytics />
       <body className="flex min-h-full flex-col">
         {children}
          <Toaster position="top-center" richColors closeButton />
