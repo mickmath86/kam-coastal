@@ -28,9 +28,10 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
-      <Analytics />
+      
       <body className="flex min-h-full flex-col">
         {children}
+        <Analytics />
          <Toaster position="top-center" richColors closeButton />
         </body>
     </html>
