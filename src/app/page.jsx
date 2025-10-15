@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
+import { Button } from '@/components/Button'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
@@ -9,6 +9,7 @@ import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
 import  HeroMain  from '@/components/HeroMain'
+import { CaseStudiesWithFilter } from '@/components/CaseStudiesWithFilter'
 
 import logoReality from '@/images/clients/reality/logo-light.svg'
 import logoWCIU from '@/images/clients/wciu/logo-light.svg'
@@ -28,6 +29,7 @@ import imageLaptop from '@/images/projects/heros/wciu.jpg'
 import { loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 
+// Non-Profit Client list
 const NPClients = [
   ['Reality', logoReality],
   ['Crazy Love', logoCrazyLove],
@@ -38,7 +40,7 @@ const NPClients = [
   ["Education First", logoEF]
 
 ]
-
+// For Profit Client list
 const FPClients = [
   ['Walmart', logoWalmart],
   ['FedEx', logoFedex],
@@ -107,72 +109,7 @@ function Clients() {
 }
 
 function CaseStudies({ caseStudies }) {
-  return (
-    <>
-      <SectionIntro
-        title="Real Projects. Real Impact."
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
-        <p>
-          From large-scale developments to strategic brokerage deals, our work speaks for itself. Explore how we’ve partnered with faith-based organizations to bring meaningful projects to life.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {caseStudies.map((caseStudy) => (
-            <FadeIn key={caseStudy.href} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
-                <h3>
-                  <Link href={caseStudy.href}>
-                    <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={caseStudy.logo}
-                      alt={caseStudy.client}
-                      className="h-16 w-16"
-                      unoptimized
-                    />
-                  </Link>
-                </h3>
-                <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
-                  <time
-                    dateTime={caseStudy.date.split('-')[0]}
-                    className="font-semibold"
-                  >
-                    {caseStudy.date.split('-')[0]}
-                  </time>
-                  <span className="text-neutral-300" aria-hidden="true">
-                    /
-                  </span>
-                  <span>Case study</span>
-                    <span className="text-neutral-300" aria-hidden="true">
-                    /
-                  </span>
-                    <span>{caseStudy.service}</span>
-                </p>
-                 {caseStudy.image && (
-                    <Image
-                    src={caseStudy.image.src}
-                    alt={`${caseStudy.client} case study`}
-                    width={500}
-                    height={300}
-                    className="mt-6 rounded-md object-cover"
-                  />
-                  )}
-
-                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
-                  {caseStudy.title}
-                </p>
-                <p className="mt-4 text-base text-neutral-600">
-                  {caseStudy.description}
-                </p>
-
-              </article>
-            </FadeIn>
-          ))}
-        </FadeInStagger>
-      </Container>
-    </>
-  )
+  return <CaseStudiesWithFilter caseStudies={caseStudies} />
 }
 
 function Services() {
@@ -224,7 +161,8 @@ export const metadata = {
 }
 
 export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 3)
+  let allCaseStudies = await loadCaseStudies()
+  let caseStudies = allCaseStudies.filter(study => study.featured === true)
 
   return (
     <RootLayout>
@@ -246,7 +184,7 @@ export default async function Home() {
 
       <Clients />
 
-      <CaseStudies caseStudies={caseStudies} />
+      <CaseStudiesWithFilter caseStudies={caseStudies} />
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"

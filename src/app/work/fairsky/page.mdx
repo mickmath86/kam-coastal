@@ -1,0 +1,133 @@
+import Image from 'next/image'
+import logo from '@/images/clients/fairsky/logo-dark.svg'
+import imageHero from './hero.jpg'
+import imageGallery1 from './fs-1.jpg'
+import imageGallery2 from './fs-2.jpg'
+import imageGallery3 from './fs-3.jpg'
+import imageGallery4 from './fs-4.jpg'
+import imageGallery5 from './fs-5.jpg'
+import imageGallery6 from './fs-6.jpg'
+import imageGallery7 from './fs-7.jpg'
+import imageGallery8 from './fs-8.jpg'
+import imageGallery9 from './fs-9.jpg'
+
+import imageGallery11 from './fs-11.jpg'
+import imageGallery12 from './fs-12.jpg'
+import imageGallery13 from './fs-13.jpg'
+import { ImageGallery } from '@/components/ImageGallery'
+
+export const caseStudy = {
+  client: 'FairSky Technology Park',
+  title: 'FairSky Technology Park',
+  description:
+    'KAM Coastal partnered with The Rottman Group to develop, construct, lease, and sell all seven buildings in the first speculated commercial business park in Northern Santa Barbara County since the 1980s.',
+  summary: [
+    'In 1999 KAM Coastal partnered with The Rottman Group of Santa Barbara, CA in their first joint venture to build a technology park in Santa Maria, California.',
+    'KAM Coastal was responsible for the development, construction, leasing, and sale of all seven buildings in the park, completing the project in 2002.',
+  ],
+  logo,
+  image: { src: imageHero },
+  service: 'Development',
+  date: '2002-01',
+  featured: true,
+}
+
+export const metadata = {
+  title: `${caseStudy.client} Case Study`,
+  description: caseStudy.description,
+}
+
+## Overview
+
+In 1999 KAM Coastal partnered with The Rottman Group of Santa Barbara, CA in their first joint venture to build a technology park in Santa Maria, California. KAM Coastal was responsible for the development, construction, leasing, and sale of all seven buildings in the park.
+
+Completed in 2002, FairSky Technology Park was the first speculated commercial business park in Northern Santa Barbara County since the 1980s. This 141,000-square-foot Planned Development Business Park features 7 buildings on a 10-acre master planned site.
+<Image src={imageGallery13} alt="FairSky Technology Park" />
+  <Image src={imageGallery11} alt="FairSky Technology Park" />
+
+The buildings range in size from 16,800 square feet to 23,000 square feet and are located on their own parcel to allow the individual sale of each building within the park. The project is zoned M-1 for light industrial, with office space comprising 70% of the floor space.
+
+## What we did
+
+<TagList>
+  <TagListItem>Land Developer</TagListItem>
+  <TagListItem>General Partner</TagListItem>
+  <TagListItem>Park Construction</TagListItem>
+  <TagListItem>Leasing & Sales</TagListItem>
+</TagList>
+
+<StatList>
+  <StatListItem value="141,000 sq ft" label="Total park size" />
+  <StatListItem value="10 acres" label="Master planned site" />
+  <StatListItem value="7 buildings" label="Individual buildings" />
+  <StatListItem value="2002" label="Project completion" />
+</StatList>
+
+## Gallery
+
+<ImageGallery 
+  images={[
+    {
+      src: imageGallery1,
+      alt: "FairSky Technology Park - Building Exterior",
+      caption: "Modern office buildings with professional landscaping"
+    },
+    {
+      src: imageGallery2,
+      alt: "FairSky Technology Park - Interior Office Space",
+      caption: "Open floor plan office space with natural lighting"
+    },
+    {
+      src: imageGallery3,
+      alt: "FairSky Technology Park - Parking and Grounds",
+      caption: "Ample parking and well-maintained grounds"
+    },
+    {
+      src: imageGallery4,
+      alt: "FairSky Technology Park - Building Signage",
+      caption: "Professional building signage and entrance"
+    },
+    {
+      src: imageGallery5,
+      alt: "FairSky Technology Park - Aerial View",
+      caption: "Aerial view of the complete 10-acre development"
+    },
+    {
+      src: imageGallery6,
+      alt: "FairSky Technology Park - Conference Room",
+      caption: "Modern conference facilities for tenants"
+    }, 
+      {
+      src: imageGallery7,
+      alt: "FairSky Technology Park - Conference Room",
+      caption: "Modern conference facilities for tenants"
+    }, 
+    {
+      src: imageGallery8,
+      alt: "FairSky Technology Park - Conference Room",
+      caption: "Modern conference facilities for tenants"
+    }, 
+    {
+      src: imageGallery9,
+      alt: "FairSky Technology Park - Conference Room",
+      caption: "Modern conference facilities for tenants"
+    }, 
+  
+    {
+      src: imageGallery11,
+      alt: "FairSky Technology Park - Conference Room",
+      caption: "Modern conference facilities for tenants"
+    }, 
+    {
+      src: imageGallery12,
+      alt: "FairSky Technology Park - Conference Room",
+      caption: "Modern conference facilities for tenants"
+    }, 
+    {
+      src: imageGallery13,
+      alt: "FairSky Technology Park - Conference Room",
+      caption: "Modern conference facilities for tenants"
+    }, 
+  ]}
+  className="mt-8"
+/>

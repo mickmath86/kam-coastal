@@ -42,7 +42,8 @@
     "sonner": "^2.0.6",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.7",
-    "unified-conditional": "0.0.2"
+    "unified-conditional": "0.0.2",
+    "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
