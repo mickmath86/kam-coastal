@@ -1,0 +1,56 @@
+/* ---------------------------------------------------------------------------
+   Print styles for the investor deck (Option A — landscape 8.5x11).
+   On screen these rules do nothing; they only activate when printing or
+   saving to PDF. Each slide is laid out as one landscape Letter page.
+--------------------------------------------------------------------------- */
+
+/* Landscape US Letter, no printer margins (we control padding inside slides). */
+@page {
+  size: 11in 8.5in;
+  margin: 0;
+}
+
+@media print {
+  /* Let background colors / images actually render. */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide the interactive deck (single-slide stage + chrome) entirely. */
+  .deck-screen {
+    display: none !important;
+  }
+
+  /* Show the print-only stack that renders every slide. */
+  .deck-print {
+    display: block !important;
+  }
+
+  /* Each printable slide = exactly one page, no clipping, clean breaks. */
+  .deck-print .deck-print-page {
+    /* 11in wide x 8.5in tall content area (page has zero margin). */
+    width: 11in;
+    height: 8.5in;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .deck-print .deck-print-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  /* Neutralize the on-screen 100dvh frame so the slide fills the paper page. */
+  .deck-print .deck-print-page > section {
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+}

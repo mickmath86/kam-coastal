@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import './deck-print.css'
 
 export function DeckShell({ slides }) {
   const [index, setIndex] = useState(0)
@@ -79,7 +80,9 @@ export function DeckShell({ slides }) {
   }
 
   return (
-    <div className="relative h-[100dvh] w-full overflow-hidden bg-neutral-950">
+    <>
+    {/* ---- interactive on-screen deck (hidden when printing) ---- */}
+    <div className="deck-screen relative h-[100dvh] w-full overflow-hidden bg-neutral-950">
       {/* slide stage */}
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
@@ -115,6 +118,19 @@ export function DeckShell({ slides }) {
       >
         KAM Coastal
       </Link>
+
+      {/* download as PDF (landscape 8.5x11) */}
+      <button
+        onClick={() => window.print()}
+        className="fixed right-5 top-5 z-30 flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 font-display text-xs font-semibold text-white backdrop-blur transition hover:bg-white/20"
+        title="Download a landscape 8.5×11 PDF"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
+          <path d="M12 3v12m0 0l-4-4m4 4l4-4" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Download PDF
+      </button>
 
       {/* arrow controls */}
       <NavArrow side="left" onClick={prev} disabled={index === 0} />
@@ -195,6 +211,19 @@ export function DeckShell({ slides }) {
         )}
       </AnimatePresence>
     </div>
+
+    {/* ---- print-only stack: every slide, one per landscape page ---- */}
+    <div className="deck-print hidden" aria-hidden="true">
+      {slides.map((s) => {
+        const SlideComponent = s.Component
+        return (
+          <div key={s.id} className="deck-print-page">
+            <SlideComponent />
+          </div>
+        )
+      })}
+    </div>
+    </>
   )
 }
 
