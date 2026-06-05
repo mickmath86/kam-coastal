@@ -34,17 +34,23 @@ import {
 } from './data/deckData'
 import { deckTeam } from './data/team'
 import { trackRecord } from './data/projects'
+import heroImage from '@/images/lighthouse/hero.jpg'
+import siteAerial from '@/images/lighthouse/site-aerial.jpg'
 
 /* 01 — COVER ----------------------------------------------------------- */
 function Cover() {
   return (
     <Slide tone="dark" padded={false}>
       <div className="relative flex h-full w-full flex-col">
-        {/* hero image area (placeholder until renderings provided) */}
-        <ImagePlaceholder
-          dark
-          label="Hero rendering — Exhibit A-3.2 Perspective Views"
-          className="absolute inset-0 rounded-none border-0 bg-neutral-900"
+        {/* hero rendering */}
+        <Image
+          src={heroImage}
+          alt="Exterior rendering of Cochran Street Apartments"
+          fill
+          priority
+          sizes="100vw"
+          placeholder="blur"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/30" />
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pb-28 sm:px-10 lg:px-12">
@@ -106,21 +112,43 @@ function Thesis() {
 /* 04 — MARKET OVERVIEW ------------------------------------------------- */
 function MarketOverview() {
   return (
-    <Slide tone="light">
+    <Slide tone="light" dense>
       <SlideHeading
+        size="sm"
         eyebrow="Market Overview"
-        title="A resilient, supply-constrained submarket"
-        lede="Simi Valley pairs a strong employment base, top schools, and commuter access with steady rent growth and limited new deliveries."
+        title="A resilient, supply-starved submarket"
+        lede="Simi Valley pairs a strong employment base, top schools, and commuter access with a 3.7% vacancy rate and effectively zero new multifamily supply in the pipeline."
       />
-      <div className="mt-10 grid gap-8 lg:grid-cols-2">
-        <div>
-          <StatGrid items={market.stats} cols={2} />
-          <p className="mt-4 text-xs text-neutral-400">
-            Placeholder figures — fill with fresh Simi Valley / Ventura County submarket research.
-          </p>
-        </div>
-        <ImagePlaceholder label="Submarket map + rent/vacancy charts" className="min-h-[260px]" />
+      <div className="mt-6">
+        <StatGrid items={market.stats} cols={4} size="sm" />
       </div>
+      <div className="mt-5 grid gap-5 lg:grid-cols-2">
+        <div className="rounded-3xl border border-neutral-950/10 bg-neutral-50 p-6">
+          <p className="font-display text-xs font-semibold uppercase tracking-wider text-emerald-700">Supply is frozen</p>
+          <h3 className="mt-1 font-display text-lg font-semibold text-neutral-950">No competing product is being built</h3>
+          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
+            {market.supply.map((s) => (
+              <div key={s.label} className="flex items-baseline justify-between gap-3 border-b border-neutral-950/5 pb-2">
+                <dt className="text-sm text-neutral-600">{s.label}</dt>
+                <dd className="font-display text-base font-semibold text-neutral-950">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div className="rounded-3xl border border-neutral-950/10 bg-neutral-50 p-6">
+          <p className="font-display text-xs font-semibold uppercase tracking-wider text-emerald-700">Investment context</p>
+          <h3 className="mt-1 font-display text-lg font-semibold text-neutral-950">Pricing & liquidity</h3>
+          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
+            {market.pricing.map((s) => (
+              <div key={s.label} className="flex items-baseline justify-between gap-3 border-b border-neutral-950/5 pb-2">
+                <dt className="text-sm text-neutral-600">{s.label}</dt>
+                <dd className="font-display text-base font-semibold text-neutral-950">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+      <p className="mt-4 text-xs text-neutral-400">Source: {market.source}.</p>
     </Slide>
   )
 }
@@ -137,7 +165,16 @@ function TheSite() {
           <DetailRow label="Area" value={`${project.gsf.toLocaleString()} GSF · ${project.nrsf.toLocaleString()} net rentable SF`} />
           <DetailRow label="Context" value="Infill site with frontage on Cochran Street; surrounded by established residential and commercial uses." />
         </div>
-        <ImagePlaceholder label="Aerial + location map of 4910 Cochran Street" className="min-h-[300px]" />
+        <div className="relative min-h-[300px] overflow-hidden rounded-3xl border border-neutral-950/10">
+          <Image
+            src={siteAerial}
+            alt="Aerial view of 4910 Cochran Street with the parcel marked"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            placeholder="blur"
+            className="object-cover"
+          />
+        </div>
       </div>
     </Slide>
   )

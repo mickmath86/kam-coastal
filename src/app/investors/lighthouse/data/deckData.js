@@ -68,17 +68,33 @@ export const execStats = [
 ]
 
 export const market = {
-  // Placeholders — fill with fresh Simi Valley / Ventura County submarket research.
+  // Source: CoStar — Simi Valley Multi-Family Submarket Report, Q2 2026.
+  source: 'CoStar Multi-Family Submarket Report — Simi Valley, Q2 2026',
   stats: [
-    { value: '[ XX% ]', label: 'Submarket vacancy' },
-    { value: '[ X.X% ]', label: 'YoY rent growth' },
-    { value: '[ — ]', label: 'Multifamily under construction' },
-    { value: '[ — ]', label: 'Population / job growth' },
+    { value: '3.7%', label: 'Submarket vacancy' },
+    { value: '$2,610', label: 'Avg. asking rent / mo' },
+    { value: '0', label: 'Units under construction' },
+    { value: '~4,540', label: 'Total submarket inventory' },
   ],
-  comps: [
-    { name: '[ Comp 1 ]', units: '[ — ]', rent: '[ $— ]', rentPsf: '[ $— ]' },
-    { name: '[ Comp 2 ]', units: '[ — ]', rent: '[ $— ]', rentPsf: '[ $— ]' },
-    { name: '[ Comp 3 ]', units: '[ — ]', rent: '[ $— ]', rentPsf: '[ $— ]' },
+  // Supply story: virtually no new product being built or delivered.
+  supply: [
+    { value: '0', label: 'Units under construction' },
+    { value: '0', label: 'Units delivered, next 8 qtrs (forecast)' },
+    { value: '280', label: 'Total proposed units, next 8 qtrs' },
+    { value: '48', label: 'All-time annual avg. units delivered' },
+  ],
+  // Pricing / investment context.
+  pricing: [
+    { value: '5.3%', label: 'Est. submarket cap rate' },
+    { value: '$330K', label: 'Est. market price / unit' },
+    { value: '$94.5M', label: '5-yr avg. annual sales volume' },
+    { value: '$0', label: 'Trailing-12-mo sales volume' },
+  ],
+  rentByBed: [
+    { type: 'Studio', rent: '~$1,580' },
+    { type: '1 Bed', rent: '~$2,330' },
+    { type: '2 Bed', rent: '~$2,710' },
+    { type: '3 Bed', rent: '~$3,180' },
   ],
 }
 
