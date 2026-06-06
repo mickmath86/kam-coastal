@@ -1,12 +1,13 @@
 'use client'
 
 import clsx from 'clsx'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import './deck-print.css'
 
-export function DeckShell({ slides }) {
+export function DeckShell({ slides, backgroundImage }) {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState(0)
   const [tabsOpen, setTabsOpen] = useState(false)
@@ -72,6 +73,12 @@ export function DeckShell({ slides }) {
   }, [next, prev, go, total])
 
   const Active = slides[index].Component
+  const currentSlide = slides[index]
+  
+  // Determine background based on slide metadata or tone
+  const hasExplicitBackground = currentSlide.backgroundImage || currentSlide.backgroundColor
+  const autoBackground = !hasExplicitBackground && currentSlide.tone === 'light' ? 'bg-white' : null
+  const showDefaultDeckBackground = backgroundImage && !hasExplicitBackground && !autoBackground
 
   const variants = {
     enter: (dir) => ({ opacity: 0, x: reduce ? 0 : dir > 0 ? 80 : -80 }),
@@ -83,6 +90,59 @@ export function DeckShell({ slides }) {
     <>
     {/* ---- interactive on-screen deck (hidden when printing) ---- */}
     <div className="deck-screen relative h-[100dvh] w-full overflow-hidden bg-neutral-950">
+      {/* default deck background image */}
+      {showDefaultDeckBackground && (
+        <>
+          <div className="absolute inset-0">
+            <Image
+              src={backgroundImage}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              placeholder="blur"
+              className="object-cover object-center"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div className="absolute inset-0 bg-neutral-950/60" />
+        </>
+      )}
+      
+      {/* per-slide background (outside animation to prevent fade) */}
+      <AnimatePresence mode="wait">
+        {currentSlide.backgroundImage && (
+          <motion.div
+            key={`bg-img-${index}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={currentSlide.backgroundImage}
+              alt=""
+              fill
+              sizes="100vw"
+              placeholder="blur"
+              className="object-cover object-center"
+              style={{ objectFit: 'cover' }}
+            />
+          </motion.div>
+        )}
+        {(currentSlide.backgroundColor || autoBackground) && (
+          <motion.div
+            key={`bg-color-${index}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0 }}
+            className={`absolute inset-0 ${currentSlide.backgroundColor || autoBackground}`}
+          />
+        )}
+      </AnimatePresence>
+      
       {/* slide stage */}
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div

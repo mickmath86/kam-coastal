@@ -1,5 +1,6 @@
 import { DeckShell } from '@/components/deck/DeckShell'
 import { slides } from './slides'
+import heroImage from '@/images/lighthouse/hero.jpg'
 
 export const metadata = {
   title: 'Cochran Street Apartments — Investor Opportunity',
@@ -9,5 +10,5 @@ export const metadata = {
 }
 
 export default function LighthouseInvestorDeck() {
-  return <DeckShell slides={slides} />
+  return <DeckShell slides={slides} backgroundImage={heroImage} />
 }

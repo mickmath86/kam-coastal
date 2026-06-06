@@ -36,23 +36,20 @@ import { deckTeam } from './data/team'
 import { trackRecord } from './data/projects'
 import heroImage from '@/images/lighthouse/hero.jpg'
 import siteAerial from '@/images/lighthouse/site-aerial.jpg'
+import rendering1 from '@/images/lighthouse/rendering-1.png'
+import rendering2 from '@/images/lighthouse/rendering-2.png'
+import rendering3 from '@/images/lighthouse/rendering-3.png'
+import rendering4 from '@/images/lighthouse/rendering-4.png'
+import rendering5 from '@/images/lighthouse/rendering-5.png'
+import rendering6 from '@/images/lighthouse/rendering-6.png'
+import rendering7 from '@/images/lighthouse/rendering-7.png'
+import rendering8 from '@/images/lighthouse/rendering-8.png'
 
 /* 01 — COVER ----------------------------------------------------------- */
 function Cover() {
   return (
     <Slide tone="dark" padded={false}>
       <div className="relative flex h-full w-full flex-col">
-        {/* hero rendering */}
-        <Image
-          src={heroImage}
-          alt="Exterior rendering of Cochran Street Apartments"
-          fill
-          priority
-          sizes="100vw"
-          placeholder="blur"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/30" />
         <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pb-28 sm:px-10 lg:px-12">
           <Eyebrow dark>{project.address}</Eyebrow>
           <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium tracking-tight text-balance text-white sm:text-6xl lg:text-7xl">
@@ -76,7 +73,7 @@ function Cover() {
 /* 02 — EXECUTIVE SUMMARY ----------------------------------------------- */
 function ExecSummary() {
   return (
-    <Slide tone="dark">
+    <Slide tone="dark" padded={false}>
       <SlideHeading
         dark
         eyebrow="The Opportunity"
@@ -253,16 +250,51 @@ function Design() {
         lede="Approved architecture, amenities, and site layout from the entitlement exhibit set."
       />
       <div className="mt-8 grid flex-1 grid-cols-2 gap-4">
-        <ImagePlaceholder label="Exterior rendering (A-3.2)" />
-        <ImagePlaceholder label="Site plan (A-1.x)" />
-        <ImagePlaceholder label="Elevations (A-2.x)" />
-        <ImagePlaceholder label="Amenity / unit layouts" />
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering1} alt="Exterior rendering - street view" fill className="object-cover" />
+        </div>
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering2} alt="Aerial view of development" fill className="object-cover" />
+        </div>
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering3} alt="Courtyard and landscaping" fill className="object-cover" />
+        </div>
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering4} alt="Building elevations" fill className="object-cover" />
+        </div>
       </div>
     </Slide>
   )
 }
 
-/* 09 — UNIT MIX -------------------------------------------------------- */
+/* 09 — AMENITIES & INTERIORS ------------------------------------------- */
+function DesignAmenities() {
+  return (
+    <Slide tone="light">
+      <SlideHeading
+        eyebrow="Amenities & Interiors"
+        title="Premium finishes and resident amenities"
+        lede="Thoughtfully designed common areas and high-quality unit interiors."
+      />
+      <div className="mt-8 grid flex-1 grid-cols-2 gap-4">
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering5} alt="Rooftop amenity deck" fill className="object-cover" />
+        </div>
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering6} alt="Additional rendering" fill className="object-cover" />
+        </div>
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering7} alt="Unit interior" fill className="object-cover" />
+        </div>
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image src={rendering8} alt="Common area" fill className="object-cover" />
+        </div>
+      </div>
+    </Slide>
+  )
+}
+
+/* 10 — UNIT MIX -------------------------------------------------------- */
 function UnitMix() {
   const rows = [
     ...unitMix.rows.map((r) => ({ cells: [r.type, r.units, r.sf, r.rent, r.psf] })),
@@ -388,7 +420,7 @@ function Valuation() {
 /* 13 — RETURNS --------------------------------------------------------- */
 function Returns() {
   return (
-    <Slide tone="dark">
+    <Slide tone="dark" className="bg-slate-950">
       <SlideHeading dark eyebrow="Projected Returns" title="11.4% unlevered / 14.4% levered IRR" />
       <div className="mt-10">
         <StatGrid items={returns.tiles} dark cols={3} />
@@ -634,27 +666,28 @@ function ThankYou() {
 
 /* Registry ------------------------------------------------------------- */
 export const slides = [
-  { id: 'cover', title: 'Cover', Component: Cover },
-  { id: 'exec', title: 'The Opportunity', Component: ExecSummary },
-  { id: 'thesis', title: 'Why This Deal', Component: Thesis },
-  { id: 'market', title: 'Market Overview', Component: MarketOverview },
-  { id: 'site', title: 'The Site', Component: TheSite },
-  { id: 'entitlements', title: 'The Entitlements', Component: Entitlements },
-  { id: 'permits', title: 'Path to Permits', Component: PathToPermits },
-  { id: 'design', title: 'Design & Renderings', Component: Design },
-  { id: 'unit-mix', title: 'Unit Mix & Rent Roll', Component: UnitMix },
-  { id: 'sources-uses', title: 'Sources & Uses', Component: SourcesUses },
-  { id: 'proforma', title: 'Pro Forma P&L', Component: Proforma },
-  { id: 'valuation', title: 'Valuation & Exit', Component: Valuation },
-  { id: 'returns', title: 'Projected Returns', Component: Returns },
-  { id: 'cashflow', title: 'Annual Cash Flow', Component: CashFlow },
-  { id: 'structure', title: 'Transaction Structure', Component: Structure },
-  { id: 'sensitivity', title: 'Sensitivity Analysis', Component: Sensitivity },
-  { id: 'why-now', title: 'Why Now', Component: WhyNow },
-  { id: 'the-ask', title: 'The Ask', Component: TheAsk },
-  { id: 'about', title: 'About KAM Coastal', Component: AboutTeam },
-  { id: 'track-record', title: 'Our Track Record', Component: TrackRecord },
-  { id: 'next-steps', title: 'Next Steps', Component: NextSteps },
-  { id: 'disclaimer', title: 'Disclaimer', Component: Disclaimer },
-  { id: 'thank-you', title: 'Thank You', Component: ThankYou },
+  { id: 'cover', title: 'Cover', Component: Cover, tone: 'dark' },
+  { id: 'exec', title: 'The Opportunity', Component: ExecSummary, tone: 'dark', backgroundColor: 'bg-sky-950' },
+  { id: 'thesis', title: 'Why This Deal', Component: Thesis, tone: 'light' },
+  { id: 'market', title: 'Market Overview', Component: MarketOverview, tone: 'light' },
+  { id: 'site', title: 'The Site', Component: TheSite, tone: 'light' },
+  { id: 'entitlements', title: 'The Entitlements', Component: Entitlements, tone: 'dark', backgroundColor: 'bg-slate-900' },
+  { id: 'permits', title: 'Path to Permits', Component: PathToPermits, tone: 'light' },
+  { id: 'design', title: 'Design & Renderings', Component: Design, tone: 'light' },
+  { id: 'amenities', title: 'Amenities & Interiors', Component: DesignAmenities, tone: 'light' },
+  { id: 'unit-mix', title: 'Unit Mix & Rent Roll', Component: UnitMix, tone: 'light' },
+  { id: 'sources-uses', title: 'Sources & Uses', Component: SourcesUses, tone: 'light' },
+  { id: 'proforma', title: 'Pro Forma P&L', Component: Proforma, tone: 'light' },
+  { id: 'valuation', title: 'Valuation & Exit', Component: Valuation, tone: 'dark' },
+  { id: 'returns', title: 'Projected Returns', Component: Returns, tone: 'dark' },
+  { id: 'cashflow', title: 'Annual Cash Flow', Component: CashFlow, tone: 'light' },
+  { id: 'structure', title: 'Transaction Structure', Component: Structure, tone: 'light' },
+  { id: 'sensitivity', title: 'Sensitivity Analysis', Component: Sensitivity, tone: 'light' },
+  { id: 'why-now', title: 'Why Now', Component: WhyNow, tone: 'dark' },
+  { id: 'the-ask', title: 'The Ask', Component: TheAsk, tone: 'dark' },
+  { id: 'about', title: 'About KAM Coastal', Component: AboutTeam, tone: 'light' },
+  { id: 'track-record', title: 'Our Track Record', Component: TrackRecord, tone: 'light' },
+  { id: 'next-steps', title: 'Next Steps', Component: NextSteps, tone: 'light' },
+  { id: 'disclaimer', title: 'Disclaimer', Component: Disclaimer, tone: 'light' },
+  { id: 'thank-you', title: 'Thank You', Component: ThankYou, tone: 'dark' },
 ]
