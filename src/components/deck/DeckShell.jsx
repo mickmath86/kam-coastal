@@ -171,52 +171,32 @@ export function DeckShell({ slides, backgroundImage }) {
         Slide {index + 1} of {total}: {slides[index].title}
       </p>
 
-      {/* top-left brand / back link */}
-      <Link
-        href="/"
-        className="fixed left-5 top-5 z-30 font-display text-sm font-semibold text-white/80 transition hover:text-white"
-      >
-        KAM Coastal
-      </Link>
-
-      {/* download as PDF (landscape 8.5x11) */}
-      <button
-        onClick={() => window.print()}
-        className="fixed right-5 top-5 z-30 flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 font-display text-xs font-semibold text-white backdrop-blur transition hover:bg-white/20"
-        title="Download a landscape 8.5×11 PDF"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-4">
-          <path d="M12 3v12m0 0l-4-4m4 4l4-4" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        Download PDF
-      </button>
+      {/* slide counter - top right */}
+      <div className="fixed right-5 top-5 z-30 flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 backdrop-blur">
+        <span className="font-display text-xs font-semibold tabular-nums text-white/90">
+          {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+        </span>
+        <div className="h-1 w-20 overflow-hidden rounded-full bg-white/20">
+          <motion.div
+            className="h-full bg-white"
+            animate={{ width: `${((index + 1) / total) * 100}%` }}
+            transition={{ duration: reduce ? 0 : 0.3 }}
+          />
+        </div>
+      </div>
 
       {/* arrow controls */}
       <NavArrow side="left" onClick={prev} disabled={index === 0} />
       <NavArrow side="right" onClick={next} disabled={index === total - 1} />
 
-      {/* bottom progress + tabs toggle */}
-      <div className="fixed inset-x-0 bottom-0 z-30 flex items-end justify-between px-5 pb-5">
+      {/* bottom tabs toggle */}
+      <div className="fixed bottom-5 left-5 z-30">
         <button
           onClick={() => setTabsOpen((o) => !o)}
           className="rounded-full bg-white/10 px-4 py-2 font-display text-xs font-semibold text-white backdrop-blur transition hover:bg-white/20"
         >
           {tabsOpen ? 'Close' : 'Slides'}
         </button>
-
-        <div className="flex items-center gap-3">
-          <span className="font-display text-xs font-semibold tabular-nums text-white/70">
-            {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-          </span>
-          <div className="h-1 w-32 overflow-hidden rounded-full bg-white/15">
-            <motion.div
-              className="h-full bg-white"
-              animate={{ width: `${((index + 1) / total) * 100}%` }}
-              transition={{ duration: reduce ? 0 : 0.3 }}
-            />
-          </div>
-        </div>
       </div>
 
       {/* progress dots */}
