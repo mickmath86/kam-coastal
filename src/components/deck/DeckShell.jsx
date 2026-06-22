@@ -89,7 +89,7 @@ export function DeckShell({ slides, backgroundImage }) {
   return (
     <>
     {/* ---- interactive on-screen deck (hidden when printing) ---- */}
-    <div className="deck-screen relative h-[100dvh] w-full overflow-hidden bg-neutral-950">
+    <div className="deck-screen relative min-h-[100dvh] w-full overflow-hidden bg-neutral-950 lg:h-[100dvh]">
       {/* default deck background image */}
       {showDefaultDeckBackground && (
         <>
@@ -153,7 +153,7 @@ export function DeckShell({ slides, backgroundImage }) {
           animate="center"
           exit="exit"
           transition={reduce ? { duration: 0 } : { duration: 0.35, ease: 'easeOut' }}
-          className="h-full w-full"
+          className="min-h-full w-full"
           drag={reduce ? false : 'x'}
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.15}
